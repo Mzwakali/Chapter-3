@@ -18,6 +18,7 @@ public class CalculatorTest {
     public void tearDown() throws Exception {
     }
 
+    //Object Equality
     @Test
     public void add() {
 
@@ -25,17 +26,24 @@ public class CalculatorTest {
         Assert.assertEquals("Answer",8,c);
     }
 
+    @Ignore
     @Test
     public void subtract() {
-        int x = calc.subtract(2,2);
-        Assert.assertEquals(0,x);
+        int x = calc.subtract(8,2);
+        Assert.assertEquals(6,x);
     }
 
+    //Object Identification
     @Test
     public void multiply() {
+        int x = calc.multiply(2,2);
+        Assert.assertSame(8,x);
     }
 
-    @Test
+
+    @Test(timeout = 1000)
     public void divide() {
+        int x = calc.divide(9,3);
+        Assert.assertTrue("There was an error running this",true);
     }
 }
